@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 2020-04-29
 
-* TODO: Describe initial release.
+* Add an animated Bottom Navigation for Flutter apps with Lamp Effect.
