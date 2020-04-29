@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
     _pageController.dispose();
   }
 
-  void onPageChanged(int page) {
+  void _onPageChanged(int page) {
     setState(() {
       this._page = page;
     });
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
-        onPageChanged: onPageChanged,
+        onPageChanged: _onPageChanged,
         children: <Widget>[
           Center(
             child: Text(
@@ -100,28 +100,17 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          // sets the background color of the `BottomNavigationBar`
-          canvasColor: Theme.of(context).primaryColor,
-          // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-          primaryColor: Theme.of(context).accentColor,
-          textTheme: Theme.of(context).textTheme.copyWith(
-            caption: TextStyle(color: Colors.grey[500]),
-          ),
-        ),
-        child: ShadowBottomNavigationBar(
-          items: <IconData>[
-            Icons.access_alarm,
-            Icons.favorite_border,
-            Icons.search,
-            Icons.help_outline,
-            Icons.more_horiz,
-          ],
-          width: double.infinity,
-          onTap: _navigationTapped,
-          currentIndex: _page,
-        ),
+      bottomNavigationBar: ShadowBottomNavigationBar(
+        items: <IconData>[
+          Icons.access_alarm,
+          Icons.favorite_border,
+          Icons.search,
+          Icons.help_outline,
+          Icons.more_horiz,
+        ],
+        width: double.infinity,
+        onTap: _navigationTapped,
+        currentIndex: _page,
       ),
     );
   }

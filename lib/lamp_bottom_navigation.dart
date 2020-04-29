@@ -7,13 +7,22 @@ class ShadowBottomNavigationBar extends StatefulWidget {
   final List<IconData> items;
   final int currentIndex;
   final ValueChanged<int> onTap;
-  ShadowBottomNavigationBar({this.iconSize = 24, this.items = const <IconData>[], this.width, this.onTap, this.currentIndex = 0,});
+
+  ShadowBottomNavigationBar({
+    this.iconSize = 24,
+    this.items = const <IconData>[],
+    this.width,
+    this.onTap,
+    this.currentIndex = 0,
+  });
 
   @override
-  _ShadowBottomNavigationBarState createState() => _ShadowBottomNavigationBarState();
+  _ShadowBottomNavigationBarState createState() =>
+      _ShadowBottomNavigationBarState();
 }
 
-class _ShadowBottomNavigationBarState extends State<ShadowBottomNavigationBar> with SingleTickerProviderStateMixin {
+class _ShadowBottomNavigationBarState extends State<ShadowBottomNavigationBar>
+    with SingleTickerProviderStateMixin {
 
   int oldIndex = 0;
   AnimationController _controller;
@@ -41,8 +50,7 @@ class _ShadowBottomNavigationBarState extends State<ShadowBottomNavigationBar> w
       tiles.add(
         InkWell(
           onTap: () {
-            if (widget.onTap != null)
-              widget.onTap(i);
+            if (widget.onTap != null) widget.onTap(i);
           },
           child: ShadowNavigationBarTile(
             key: UniqueKey(),
@@ -79,8 +87,9 @@ class _ShadowBottomNavigationBarState extends State<ShadowBottomNavigationBar> w
                       oldPosition: oldIndex,
                       progress: Tween<double>(begin: 0.0, end: 1.0)
                           .animate(CurvedAnimation(
-                          parent: _controller,
-                          curve: Interval(0.0, 0.5, curve: Curves.easeInOut)))
+                              parent: _controller,
+                              curve:
+                                  Interval(0.0, 0.5, curve: Curves.easeInOut)))
                           .value,
                       count: widget.items.length),
                 ),
@@ -137,15 +146,18 @@ class ShadowNavigationBarTile extends StatelessWidget {
           FadeTransition(
             opacity: ((active)
                 ? Tween<double>(begin: 0, end: 1).animate(
-              CurvedAnimation(
-                  parent: animation, curve: Interval(0.6, 1, curve: Curves.easeInOut)),
-            )
+                    CurvedAnimation(
+                        parent: animation,
+                        curve: Interval(0.6, 1, curve: Curves.easeInOut)),
+                  )
                 : Tween<double>(begin: 1, end: 0).animate(
-              CurvedAnimation(
-                  parent: animation, curve: Interval(0, 0.4, curve: Curves.easeInOut)),
-            )),
+                    CurvedAnimation(
+                        parent: animation,
+                        curve: Interval(0, 0.4, curve: Curves.easeInOut)),
+                  )),
             child: CustomPaint(
-              foregroundPainter: _LightShadowPainter(active: active || wasActive),
+              foregroundPainter:
+                  _LightShadowPainter(active: active || wasActive),
             ),
           )
         ],
@@ -176,7 +188,8 @@ class _SelectedTilePainter extends CustomPainter {
     assert(freeSpace >= 0);
     return Offset(
         freeSpace / 2 +
-            (freeSpace + iconSize) * (oldPosition * (1 - progress) + newPosition * progress),
+            (freeSpace + iconSize) *
+                (oldPosition * (1 - progress) + newPosition * progress),
         1);
   }
 
@@ -185,7 +198,8 @@ class _SelectedTilePainter extends CustomPainter {
     assert(freeSpace >= 0);
     return Offset(
         freeSpace / 2 +
-            (freeSpace + iconSize) * (oldPosition * (1 - progress) + newPosition * progress) +
+            (freeSpace + iconSize) *
+                (oldPosition * (1 - progress) + newPosition * progress) +
             iconSize,
         1);
   }
@@ -219,10 +233,11 @@ class _LightShadowPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (active) {
       var p = Paint()
-        ..shader = LinearGradient(
-            colors: <Color>[color.withAlpha(64), color.withAlpha(24), color.withAlpha(0)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter)
+        ..shader = LinearGradient(colors: <Color>[
+          color.withAlpha(64),
+          color.withAlpha(24),
+          color.withAlpha(0)
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)
             .createShader(
           Rect.fromLTWH(0, 0, 56, 56),
         );
