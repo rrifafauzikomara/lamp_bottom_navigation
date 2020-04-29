@@ -1,6 +1,6 @@
 # Lamp Bottom Navigation
 
-<p align="center">
+<p align="left">
  <a href="https://pub.dev/packages/lamp_bottom_navigation">
     <img alt="Lamp Bottom Navigation" src="https://img.shields.io/pub/v/lamp_bottom_navigation.svg">
   </a>
