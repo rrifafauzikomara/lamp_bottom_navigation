@@ -6,9 +6,7 @@
   </a>
 </p>
 
-[pub package](https://pub.dev/packages/lamp_bottom_navigation)
-
-A Flutter package for easy implementation of lamp bottom navigation.
+A Flutter package for easy implementation of lamp bottom navigation 🔥.
 
 ## Example App
 <img src="screenshot/android.png" width="250" height="460">     <img src="screenshot/ios.png" width="250" height="460">
