@@ -16,7 +16,7 @@ A Flutter package for easy implementation of lamp bottom navigation 🔥.
 ```yaml
 dependencies:
   ...
-  lamp_bottom_navigation: ^0.0.1
+  lamp_bottom_navigation: ^0.1.1
 ```
 
 ## Basic Usage
