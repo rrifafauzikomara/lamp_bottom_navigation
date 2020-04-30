@@ -9,7 +9,7 @@
 A Flutter package for easy implementation of lamp bottom navigation 🔥.
 
 ## Example App
-<img src="screenshot/android.png" width="250" height="460">     <img src="screenshot/ios.png" width="250" height="460">
+![iOS Gif](https://github.com/rrifafauzikomara/lamp_bottom_navigation/blob/master/ios.gif "iOS Gif")
 
 ## Add dependency
 

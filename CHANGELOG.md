@@ -1,3 +1,8 @@
+## [0.1.1] - 2020-04-30
+
+* Rename a code.
+* Updated README file
+
 ## [0.1.0] - 2020-04-29
 
 * Initial release.
