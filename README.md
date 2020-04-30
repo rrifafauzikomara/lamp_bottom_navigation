@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: ShadowBottomNavigationBar(
+      bottomNavigationBar: LampBottomNavigationBar(
         items: <IconData>[
           Icons.access_alarm,
           Icons.favorite_border,

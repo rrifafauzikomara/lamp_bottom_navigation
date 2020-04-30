@@ -2,13 +2,13 @@ library lamp_bottom_navigation;
 
 import 'package:flutter/material.dart';
 
-class ShadowBottomNavigationBar extends StatefulWidget {
+class LampBottomNavigationBar extends StatefulWidget {
   final double iconSize, width;
   final List<IconData> items;
   final int currentIndex;
   final ValueChanged<int> onTap;
 
-  ShadowBottomNavigationBar({
+  LampBottomNavigationBar({
     this.iconSize = 24,
     this.items = const <IconData>[],
     this.width,
@@ -17,11 +17,11 @@ class ShadowBottomNavigationBar extends StatefulWidget {
   });
 
   @override
-  _ShadowBottomNavigationBarState createState() =>
-      _ShadowBottomNavigationBarState();
+  _LampBottomNavigationBarState createState() =>
+      _LampBottomNavigationBarState();
 }
 
-class _ShadowBottomNavigationBarState extends State<ShadowBottomNavigationBar>
+class _LampBottomNavigationBarState extends State<LampBottomNavigationBar>
     with SingleTickerProviderStateMixin {
 
   int oldIndex = 0;
@@ -52,7 +52,7 @@ class _ShadowBottomNavigationBarState extends State<ShadowBottomNavigationBar>
           onTap: () {
             if (widget.onTap != null) widget.onTap(i);
           },
-          child: ShadowNavigationBarTile(
+          child: LampNavigationBarTile(
             key: UniqueKey(),
             icon: widget.items[i],
             active: i == widget.currentIndex,
@@ -112,14 +112,14 @@ class _ShadowBottomNavigationBarState extends State<ShadowBottomNavigationBar>
   }
 }
 
-class ShadowNavigationBarTile extends StatelessWidget {
+class LampNavigationBarTile extends StatelessWidget {
   final IconData icon;
   final bool active, wasActive;
   final double iconSize;
   final Animation animation;
   final VoidCallback onTap;
 
-  ShadowNavigationBarTile({
+  LampNavigationBarTile({
     Key key,
     @required this.icon,
     @required this.animation,
@@ -157,7 +157,7 @@ class ShadowNavigationBarTile extends StatelessWidget {
                   )),
             child: CustomPaint(
               foregroundPainter:
-                  _LightShadowPainter(active: active || wasActive),
+              _LightLampPainter(active: active || wasActive),
             ),
           )
         ],
@@ -216,13 +216,13 @@ class _SelectedTilePainter extends CustomPainter {
   bool shouldRepaint(_SelectedTilePainter oldDelegate) => true;
 }
 
-class _LightShadowPainter extends CustomPainter {
+class _LightLampPainter extends CustomPainter {
   final bool active;
   final double iconSize;
   final Color color;
   final Animation animation;
 
-  _LightShadowPainter({
+  _LightLampPainter({
     @required this.active,
     this.animation,
     this.iconSize = 24,
@@ -247,7 +247,7 @@ class _LightShadowPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_LightShadowPainter oldDelegate) => true;
+  bool shouldRepaint(_LightLampPainter oldDelegate) => true;
 
   List<Offset> getTrap(Size size, {Offset initial = Offset.zero}) {
     var points = <Offset>[];
